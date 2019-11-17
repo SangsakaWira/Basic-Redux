@@ -1,13 +1,20 @@
 import {createStore} from 'redux'
 
 const initialState = {
-    count:10,
+    count:0,
     nama:"Sangsaka Wira",
     umur:23
 }
 
 const reducer = (state = initialState,action)=>{
-    console.log('reducer berjalan')
+    switch(action.type){
+        case 'INCREMENT':
+            return Object.assign({},state, {count:state.count+1})
+        case 'DECREMENT':
+            return Object.assign({},state, {count:state.count-1})
+        default:
+            console.log("Nothing")
+    }
     return state
 }
 
